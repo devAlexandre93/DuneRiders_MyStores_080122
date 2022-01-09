@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">My Stores</string>
+    <string name="txt_title_create_account">Création de compte</string>
+    <string name="txt_btn_create_account1">Remplir le formulaire par QR Code</string>
+    <string name="txt_btn_create_account2">Remplir le formulaire manuellement</string>
+    <string name="txt_edit_lastname">Nom</string>
+    <string name="txt_edit_firstname">Prénom</string>
+    <string name="txt_edit_email">Email</string>
+    <string name="txt_edit_address">Adresse</string>
+    <string name="txt_edit_zipcode">Code postal</string>
+    <string name="txt_edit_ciy">Ville</string>
+    <string name="txt_edit_cardnumber">Numéro de carte</string>
+    <string name="txt_btn_form">Créer</string>
+    =
 </resources>

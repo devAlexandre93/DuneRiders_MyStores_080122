@@ -10,16 +10,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyStores">
         <activity
+            android:name=".ScanCodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateAccountFormActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
+            android:name=".CreateAccountActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>

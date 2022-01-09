@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateAccountFormActivity"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/CreateAccountTitle2"
+        android:text="@string/txt_title_create_account"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                style="@style/LoginEdit"
+                android:id="@+id/editTextLastName"
+                android:inputType="textPersonName"
+                android:hint="@string/txt_edit_lastname"
+                android:background="@drawable/input"/>
+
+            <EditText
+                style="@style/LoginEdit"
+                android:id="@+id/editTextFirstName"
+                android:inputType="textPersonName"
+                android:hint="@string/txt_edit_firstname"
+                android:background="@drawable/input"/>
+
+            <EditText
+                style="@style/LoginEdit"
+                android:id="@+id/editTextEmail"
+                android:inputType="textEmailAddress"
+                android:hint="@string/txt_edit_email"
+                android:background="@drawable/input"/>
+
+
+            <EditText
+                style="@style/LoginEdit"
+                android:id="@+id/editTextAddress"
+                android:inputType="none"
+                android:hint="@string/txt_edit_address"
+                android:background="@drawable/input"/>
+
+            <EditText
+                style="@style/LoginEdit"
+                android:id="@+id/editTextZipcode"
+                android:inputType="number"
+                android:hint="@string/txt_edit_zipcode"
+                android:background="@drawable/input"/>
+
+            <EditText
+                style="@style/LoginEdit"
+                android:id="@+id/editTextCity"
+                android:inputType="none"
+                android:hint="@string/txt_edit_ciy"
+                android:background="@drawable/input"/>
+
+            <EditText
+                style="@style/LoginEdit"
+                android:id="@+id/editTextCardNumber"
+                android:inputType="number"
+                android:hint="@string/txt_edit_cardnumber"
+                android:background="@drawable/input"/>
+
+            <Button
+                android:id="@+id/buttonForm"
+                style="@style/ButtonForm"
+                android:text="@string/txt_btn_form"
+                android:background="@drawable/round_button"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

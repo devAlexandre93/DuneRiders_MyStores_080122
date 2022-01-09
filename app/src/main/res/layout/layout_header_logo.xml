@@ -5,16 +5,16 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
         android:background="@color/primary">
 
-        <TextView
-            style="@style/HeaderTextView"
-            android:id="@+id/textViewTitle" />
+        <ImageView
+            style="@style/HeaderImageViewLogo"
+            android:id="@+id/imageViewBack" />
 
         <ImageView
-            style="@style/HeaderImageViewBack"
-            android:id="@+id/imageViewBack" />
+            style="@style/HeaderImageViewUser"
+            android:id="@+id/imageViewUser" />
 
     </RelativeLayout>
 </LinearLayout>
