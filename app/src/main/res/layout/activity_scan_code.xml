@@ -13,7 +13,8 @@
         app:autoFocusButtonVisible="true"
         app:flashButtonColor="@color/white"
         app:flashButtonVisible="true"
-        app:maskColor="#6C000000"/>
+        app:maskColor="#6C000000"
+        android:background="@drawable/round_scanner"/>
 
     <TextView
         android:id="@+id/scannerTxtView"
