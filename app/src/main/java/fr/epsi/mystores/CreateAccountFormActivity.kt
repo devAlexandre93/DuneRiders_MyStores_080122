@@ -1,13 +1,12 @@
 package fr.epsi.mystores
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 
 class CreateAccountFormActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,11 +24,14 @@ class CreateAccountFormActivity : BaseActivity() {
         btnCreate.setOnClickListener(View.OnClickListener {
             writeSharedPref("lastName",editTxtLast.text.toString())
             writeSharedPref("firstName",editTxtFirst.text.toString())
+            writeSharedPref("name",editTxtFirst.text.toString() + " " + editTxtLast.text.toString())
             writeSharedPref("email",editTxtEmail.text.toString())
             writeSharedPref("address",editTxtAddress.text.toString())
             writeSharedPref("zipcode",editTxtZip.text.toString())
             writeSharedPref("city",editTxtCity.text.toString())
             writeSharedPref("cardNumber",editTxtCard.text.toString())
+            val newIntent = Intent(application, MainActivity::class.java)
+            startActivity(newIntent)
         })
 
         editTxtLast.setText(readSharedPref("lastName"))
