@@ -12,4 +12,6 @@
     <string name="txt_edit_cardnumber">Numéro de carte</string>
     <string name="txt_btn_form">Créer</string>
     <string name="txt_scan_view">Scannez un QR Code pour remplir automatiquement le formulaire !</string>
+    <string name="txt_title_edit_account">Modification du compte</string>
+    <string name="txt_btn_edit_form">Enregistrer les modifications</string>
 </resources>

@@ -93,7 +93,7 @@
 
     <style name="ButtonForm" parent="Widget.AppCompat.Button">
         <item name="android:textSize">20sp</item>
-        <item name="android:layout_width">140dp</item>
+        <item name="android:layout_width">200dp</item>
         <item name="android:layout_height">60dp</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:textAllCaps">false</item>
@@ -122,6 +122,57 @@
         <item name="android:textColor">@color/textColor</item>
         <item name="android:textSize">20sp</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Main Activity style -->
+    <style name="HomeTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">30sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">55dp</item>
+    </style>
+
+    <style name="ImageBarcode">
+        <item name="android:layout_width">@dimen/width_barcode</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="TextBarcode" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">26sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <!-- Account Activity style -->
+    <style name="EditAccountTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">30sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+
+    <style name="ButtonEditForm" parent="Widget.AppCompat.Button">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:layout_marginBottom">30dp</item>
     </style>
 
 </resources>

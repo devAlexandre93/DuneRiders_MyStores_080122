@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccountActivity"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="30dp">
+
+            <EditText
+                style="@style/LoginEdit"
+                android:id="@+id/editTextLastNameDetails"
+                android:inputType="textPersonName"
+                android:hint="@string/txt_edit_lastname"
+                android:background="@drawable/input"/>
+
+            <EditText
+                style="@style/LoginEdit"
+                android:id="@+id/editTextFirstNameDetails"
+                android:inputType="textPersonName"
+                android:hint="@string/txt_edit_firstname"
+                android:background="@drawable/input"/>
+
+            <EditText
+                style="@style/LoginEdit"
+                android:id="@+id/editTextEmailDetails"
+                android:inputType="textEmailAddress"
+                android:hint="@string/txt_edit_email"
+                android:background="@drawable/input"/>
+
+
+            <EditText
+                style="@style/LoginEdit"
+                android:id="@+id/editTextAddressDetails"
+                android:inputType="none"
+                android:hint="@string/txt_edit_address"
+                android:background="@drawable/input"/>
+
+            <EditText
+                style="@style/LoginEdit"
+                android:id="@+id/editTextZipcodeDetails"
+                android:inputType="number"
+                android:hint="@string/txt_edit_zipcode"
+                android:background="@drawable/input"/>
+
+            <EditText
+                style="@style/LoginEdit"
+                android:id="@+id/editTextCityDetails"
+                android:inputType="none"
+                android:hint="@string/txt_edit_ciy"
+                android:background="@drawable/input"/>
+
+            <Button
+                android:id="@+id/buttonEditForm"
+                style="@style/ButtonEditForm"
+                android:text="@string/txt_btn_edit_form"
+                android:background="@drawable/round_button"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

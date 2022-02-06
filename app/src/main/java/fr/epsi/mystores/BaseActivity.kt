@@ -1,5 +1,6 @@
 package fr.epsi.mystores
 
+import android.content.Intent
 import android.text.Editable
 import android.view.View
 import android.widget.EditText
@@ -15,6 +16,15 @@ open class BaseActivity : AppCompatActivity() {
         imageViewBack.visibility = View.VISIBLE
         imageViewBack.setOnClickListener(View.OnClickListener {
             onBackPressed()
+        })
+    }
+
+    fun showAccount() {
+        val imageViewUser = findViewById<ImageView>(R.id.imageViewUser)
+        imageViewUser.visibility = View.VISIBLE
+        imageViewUser.setOnClickListener(View.OnClickListener {
+            val newIntent = Intent(application, AccountActivity::class.java)
+            startActivity(newIntent)
         })
     }
 

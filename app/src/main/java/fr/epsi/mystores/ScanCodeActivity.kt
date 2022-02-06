@@ -32,7 +32,6 @@ class ScanCodeActivity : BaseActivity() {
 
     private fun codeScanner() {
         val scanView = findViewById<CodeScannerView>(R.id.scannerView)
-        val scanTxtView = findViewById<TextView>(R.id.scannerTxtView)
         codeScanner = CodeScanner(this, scanView)
 
         codeScanner.apply {

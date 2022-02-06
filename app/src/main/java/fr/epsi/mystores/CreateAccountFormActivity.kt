@@ -24,7 +24,7 @@ class CreateAccountFormActivity : BaseActivity() {
         btnCreate.setOnClickListener(View.OnClickListener {
             writeSharedPref("lastName",editTxtLast.text.toString())
             writeSharedPref("firstName",editTxtFirst.text.toString())
-            writeSharedPref("name",editTxtFirst.text.toString() + " " + editTxtLast.text.toString())
+            writeSharedPref("name",editTxtLast.text.toString() + " " + editTxtFirst.text.toString())
             writeSharedPref("email",editTxtEmail.text.toString())
             writeSharedPref("address",editTxtAddress.text.toString())
             writeSharedPref("zipcode",editTxtZip.text.toString())
@@ -33,14 +33,6 @@ class CreateAccountFormActivity : BaseActivity() {
             val newIntent = Intent(application, MainActivity::class.java)
             startActivity(newIntent)
         })
-
-        editTxtLast.setText(readSharedPref("lastName"))
-        editTxtFirst.setText(readSharedPref("firstName"))
-        editTxtEmail.setText(readSharedPref("email"))
-        editTxtAddress.setText(readSharedPref("address"))
-        editTxtZip.setText(readSharedPref("zipcode"))
-        editTxtCity.setText(readSharedPref("city"))
-        editTxtCard.setText(readSharedPref("cardNumber"))
 
         intent.getStringExtra("lastname")?.let { setLastnameWithScanner(it) }
         intent.getStringExtra("firstname")?.let { setFirstNameWithScanner(it) }
@@ -60,9 +52,4 @@ class CreateAccountFormActivity : BaseActivity() {
         editor.apply()
     }
 
-    fun readSharedPref(key: String): String {
-        val sharedPreferences: SharedPreferences =
-            getSharedPreferences("account", Context.MODE_PRIVATE)
-        return sharedPreferences.getString(key, "").toString()
-    }
 }
