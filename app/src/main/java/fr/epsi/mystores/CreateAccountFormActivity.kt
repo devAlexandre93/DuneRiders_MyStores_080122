@@ -39,6 +39,15 @@ class CreateAccountFormActivity : BaseActivity() {
         editTxtZip.setText(readSharedPref("zipcode"))
         editTxtCity.setText(readSharedPref("city"))
         editTxtCard.setText(readSharedPref("cardNumber"))
+
+        intent.getStringExtra("lastname")?.let { setLastnameWithScanner(it) }
+        intent.getStringExtra("firstname")?.let { setFirstNameWithScanner(it) }
+        intent.getStringExtra("email")?.let { setEmailWithScanner(it) }
+        intent.getStringExtra("address")?.let { setAddressWithScanner(it) }
+        intent.getStringExtra("zipcode")?.let { setZipcodeWithScanner(it) }
+        intent.getStringExtra("city")?.let { setCityWithScanner(it) }
+        intent.getStringExtra("cardnumber")?.let { setCardNumberWithScanner(it) }
+
     }
 
     fun writeSharedPref(key: String, value: String) {

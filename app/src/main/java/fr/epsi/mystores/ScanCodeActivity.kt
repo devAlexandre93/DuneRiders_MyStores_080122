@@ -1,5 +1,6 @@
 package fr.epsi.mystores
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,8 @@ import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
+import org.json.JSONArray
+import org.json.JSONObject
 
 private const val CAMERA_REQUEST_CODE = 101
 
@@ -33,7 +36,7 @@ class ScanCodeActivity : BaseActivity() {
     private fun codeScanner() {
         val scanView = findViewById<CodeScannerView>(R.id.scannerView)
         val scanTxtView = findViewById<TextView>(R.id.scannerTxtView)
-        codeScanner = CodeScanner(this, scanView )
+        codeScanner = CodeScanner(this, scanView)
 
         codeScanner.apply {
             camera = CodeScanner.CAMERA_BACK
@@ -45,7 +48,23 @@ class ScanCodeActivity : BaseActivity() {
 
             decodeCallback = DecodeCallback {
                 runOnUiThread {
-                    scanTxtView.text = it.text
+                    val jsonData = JSONObject(it.text)
+                    val lastname = jsonData.getString("lastName")
+                    val firstname = jsonData.getString("firstName")
+                    val email = jsonData.getString("email")
+                    val address = jsonData.getString("address")
+                    val zipcode = jsonData.getString("zipcode")
+                    val city = jsonData.getString("city")
+                    val cardnumber = jsonData.getString("cardRef")
+                    val newIntent = Intent(application, CreateAccountFormActivity::class.java)
+                    newIntent.putExtra("lastname", lastname)
+                    newIntent.putExtra("firstname", firstname)
+                    newIntent.putExtra("email", email)
+                    newIntent.putExtra("address", address)
+                    newIntent.putExtra("zipcode", zipcode)
+                    newIntent.putExtra("city", city)
+                    newIntent.putExtra("cardnumber", cardnumber)
+                    startActivity(newIntent)
                 }
             }
 
@@ -72,8 +91,10 @@ class ScanCodeActivity : BaseActivity() {
     }
 
     private fun setupPermissions() {
-        val permission = ContextCompat.checkSelfPermission(this,
-            android.Manifest.permission.CAMERA)
+        val permission = ContextCompat.checkSelfPermission(
+            this,
+            android.Manifest.permission.CAMERA
+        )
 
         if (permission != PackageManager.PERMISSION_GRANTED) {
             makeRequest()
@@ -81,9 +102,11 @@ class ScanCodeActivity : BaseActivity() {
     }
 
     private fun makeRequest() {
-        ActivityCompat.requestPermissions(this,
+        ActivityCompat.requestPermissions(
+            this,
             arrayOf(android.Manifest.permission.CAMERA),
-            CAMERA_REQUEST_CODE)
+            CAMERA_REQUEST_CODE
+        )
     }
 
     override fun onRequestPermissionsResult(
@@ -95,7 +118,11 @@ class ScanCodeActivity : BaseActivity() {
         when (requestCode) {
             CAMERA_REQUEST_CODE -> {
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "You need the camera permission to be able to scan !", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        "You need the camera permission to be able to scan !",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 } else {
                     // Successful
                 }
