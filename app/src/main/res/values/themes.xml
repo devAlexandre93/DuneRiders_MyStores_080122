@@ -124,33 +124,6 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <!-- Main Activity style -->
-    <style name="HomeTitle" parent="Widget.AppCompat.TextView">
-        <item name="android:textSize">30sp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textColor">@color/textColor</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginTop">55dp</item>
-    </style>
-
-    <style name="ImageBarcode">
-        <item name="android:layout_width">@dimen/width_barcode</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">5dp</item>
-        <item name="android:textColor">@color/textColor</item>
-        <item name="android:layout_gravity">center_horizontal</item>
-    </style>
-
-    <style name="TextBarcode" parent="Widget.AppCompat.TextView">
-        <item name="android:textSize">26sp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/textColor</item>
-    </style>
-
     <!-- Account Activity style -->
     <style name="EditAccountTitle" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">30sp</item>
@@ -173,6 +146,47 @@
         <item name="android:padding">10dp</item>
         <item name="android:layout_marginTop">30dp</item>
         <item name="android:layout_marginBottom">30dp</item>
+    </style>
+
+    <!-- Tabbar Layout style -->
+    <style name="Tab" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginRight">1dp</item>
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:layout_marginBottom">1dp</item>
+    </style>
+
+    <!-- Card Fragment style -->
+    <style name="CardFragmentTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">30sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">55dp</item>
+    </style>
+
+    <style name="ImageBarcode">
+        <item name="android:layout_width">@dimen/width_barcode</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="TextBarcode" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">26sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_below">@+id/img_barcode</item>
     </style>
 
 </resources>

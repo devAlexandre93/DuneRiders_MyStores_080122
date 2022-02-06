@@ -1,90 +1,61 @@
 package fr.epsi.mystores
 
-import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
-import android.content.SharedPreferences
-import android.graphics.Bitmap
-import android.widget.ImageView
-import androidx.annotation.ColorInt
-import com.google.zxing.BarcodeFormat
-import com.google.zxing.oned.Code128Writer
+import android.view.View
 
 class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val txtViewName = findViewById<TextView>(R.id.txt_name_home)
-        txtViewName.text = readSharedPref("name")
-
+        val tab1=findViewById<TextView>(R.id.textViewTab1)
+        val tab2=findViewById<TextView>(R.id.textViewTab2)
+        val tab3=findViewById<TextView>(R.id.textViewTab3)
         showAccount()
 
-        displayBitmap(readSharedPref("cardNumber"))
+        tab1.setOnClickListener(View.OnClickListener {
+            showTab1()
+        })
+        tab2.setOnClickListener(View.OnClickListener {
+            showTab2()
+        })
+        tab3.setOnClickListener(View.OnClickListener {
+            showTab3()
+        })
+        showTab1()
     }
 
-    fun readSharedPref(key: String): String {
-        val sharedPreferences: SharedPreferences =
-            getSharedPreferences("account", Context.MODE_PRIVATE)
-        return sharedPreferences.getString(key, "").toString()
+    private fun showTab1() {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.setReorderingAllowed(true)
+        fragmentTransaction.addToBackStack("CardFragment") // name can be null
+        fragmentTransaction.replace(R.id.fragment_container, CardFragment::class.java, null)
+        fragmentTransaction.commit()
     }
 
-    private fun createBarcodeBitmap(
-        barcodeValue: String,
-        @ColorInt barcodeColor: Int,
-        @ColorInt backgroundColor: Int,
-        widthPixels: Int,
-        heightPixels: Int
-    ): Bitmap {
-        val bitMatrix = Code128Writer().encode(
-            barcodeValue,
-            BarcodeFormat.CODE_128,
-            widthPixels,
-            heightPixels
-        )
-
-        val pixels = IntArray(bitMatrix.width * bitMatrix.height)
-        for (y in 0 until bitMatrix.height) {
-            val offset = y * bitMatrix.width
-            for (x in 0 until bitMatrix.width) {
-                pixels[offset + x] =
-                    if (bitMatrix.get(x, y)) barcodeColor else backgroundColor
-            }
-        }
-
-        val bitmap = Bitmap.createBitmap(
-            bitMatrix.width,
-            bitMatrix.height,
-            Bitmap.Config.ARGB_8888
-        )
-        bitmap.setPixels(
-            pixels,
-            0,
-            bitMatrix.width,
-            0,
-            0,
-            bitMatrix.width,
-            bitMatrix.height
-        )
-        return bitmap
+    private fun showTab2() {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.setReorderingAllowed(true)
+        fragmentTransaction.addToBackStack("OffersFragment") // name can be null
+        fragmentTransaction.replace(R.id.fragment_container, OffersFragment::class.java, null)
+        fragmentTransaction.commit()
     }
 
-    private fun displayBitmap(value: String) {
-        val imgViewBarcode = findViewById<ImageView>(R.id.img_barcode)
-        val txtViewBarcode = findViewById<TextView>(R.id.txt_barcode_number)
-        val widthPixels = resources.getDimensionPixelSize(R.dimen.width_barcode)
-        val heightPixels = resources.getDimensionPixelSize(R.dimen.height_barcode)
-
-        imgViewBarcode.setImageBitmap(
-            createBarcodeBitmap(
-                barcodeValue = value,
-                barcodeColor = getColor(R.color.textColor),
-                backgroundColor = getColor(R.color.white),
-                widthPixels = widthPixels,
-                heightPixels = heightPixels
-            )
-        )
-        txtViewBarcode.text = value
+    private fun showTab3() {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.setReorderingAllowed(true)
+        fragmentTransaction.addToBackStack("StoresFragment") // name can be null
+        fragmentTransaction.replace(R.id.fragment_container, StoresFragment::class.java, null)
+        fragmentTransaction.commit()
     }
 
+    //override fun onBackPressed() {
+    //    if(supportFragmentManager.backStackEntryCount>1)
+    //        super.onBackPressed()
+    //    else
+    //        finish()
+    //}
 }

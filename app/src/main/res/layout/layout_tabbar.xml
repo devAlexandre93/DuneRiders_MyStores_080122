@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/Tab"
+            android:id="@+id/textViewTab1"
+            android:text="@string/txt_tab1"
+            android:background="@drawable/gradient_black_border"/>
+
+        <TextView
+            style="@style/Tab"
+            android:id="@+id/textViewTab2"
+            android:text="@string/txt_tab2"
+            android:background="@drawable/gradient_black_border"/>
+
+        <TextView
+            style="@style/Tab"
+            android:id="@+id/textViewTab3"
+            android:text="@string/txt_tab3"
+            android:background="@drawable/gradient_black_border"/>
+
+    </LinearLayout>
+
+</LinearLayout>
