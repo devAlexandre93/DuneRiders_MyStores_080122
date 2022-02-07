@@ -5,6 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.GsonBuilder
+import okhttp3.*
+import java.io.IOException
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,6 +42,45 @@ class OffersFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_offers, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewProductCell)
+        recyclerView.layoutManager = LinearLayoutManager(context as BaseActivity)
+        val productsList = ProductsList(listOf())
+        val productsListAdapter = ProductsListAdapter(productsList)
+        recyclerView.adapter = productsListAdapter
+
+        fetchProducts(view)
+
+    }
+
+    private fun fetchProducts(view: View) {
+        val okHttpClient: OkHttpClient = OkHttpClient.Builder().build()
+        val request = Request.Builder()
+            .url("https://djemam.com/epsi/offers.json")
+            .get()
+            .cacheControl(CacheControl.FORCE_NETWORK)
+            .build()
+
+        okHttpClient.newCall(request).enqueue(object : Callback {
+            override fun onResponse(call: Call, response: Response) {
+                val data = response.body?.string()
+                val gson = GsonBuilder().create()
+                val productsList = gson.fromJson(data, ProductsList::class.java)
+                val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewProductCell)
+                val productsListAdapter = ProductsListAdapter(productsList)
+                activity?.runOnUiThread(Runnable {
+                    recyclerView.adapter = productsListAdapter
+                })
+            }
+
+            override fun onFailure(call: Call, e: IOException) {
+                println("Failed to execute request")
+            }
+        })
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -57,3 +101,7 @@ class OffersFragment : Fragment() {
             }
     }
 }
+
+class ProductsList(val items: List<Product>)
+
+class Product(val name: String, val description: String, val picture_url: String)

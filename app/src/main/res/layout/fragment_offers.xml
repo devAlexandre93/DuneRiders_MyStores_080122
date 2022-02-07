@@ -5,9 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".OffersFragment">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewProductCell"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/txt_offers_fragment" />
+        android:paddingTop="40dp"
+        android:paddingBottom="20dp"/>
 
 </FrameLayout>
