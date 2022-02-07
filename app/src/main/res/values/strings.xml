@@ -17,5 +17,4 @@
     <string name="txt_tab1">Carte</string>
     <string name="txt_tab2">Offres</string>
     <string name="txt_tab3">Magasins</string>
-    <string name="txt_stores_fragment">Stores Fragment</string>
 </resources>

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primary">#E9D0B0</color>
+    <color name="primaryDarker">#D1BB9E</color>
     <color name="secondary">#A3CFF6</color>
     <color name="tertiary">#048B9A</color>
     <color name="background">#CDCDCD</color>
+    <color name="backgroundDarker">#B8B8B8</color>
     <color name="textColor">#022E32</color>
     <color name="error">#CD5C5C</color>
     <color name="black">#FF000000</color>

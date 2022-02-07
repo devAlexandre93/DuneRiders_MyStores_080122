@@ -6,6 +6,7 @@
         <entry key="..\:/Users/aanan/AndroidStudioProjects/MyStores/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/aanan/AndroidStudioProjects/MyStores/app/src/main/res/drawable/black_rectangle.xml" value="0.1" />
         <entry key="..\:/Users/aanan/AndroidStudioProjects/MyStores/app/src/main/res/drawable/gradient_black_border.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/aanan/AndroidStudioProjects/MyStores/app/src/main/res/drawable/gradient_black_border_reverse.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/aanan/AndroidStudioProjects/MyStores/app/src/main/res/drawable/input.xml" value="0.1" />
         <entry key="..\:/Users/aanan/AndroidStudioProjects/MyStores/app/src/main/res/drawable/round_button.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/aanan/AndroidStudioProjects/MyStores/app/src/main/res/drawable/round_scanner.xml" value="0.19583333333333333" />
@@ -17,6 +18,7 @@
         <entry key="..\:/Users/aanan/AndroidStudioProjects/MyStores/app/src/main/res/layout/activity_splash.xml" value="0.1796875" />
         <entry key="..\:/Users/aanan/AndroidStudioProjects/MyStores/app/src/main/res/layout/black_rectangle.xml" value="0.1" />
         <entry key="..\:/Users/aanan/AndroidStudioProjects/MyStores/app/src/main/res/layout/fragment_card.xml" value="0.1796875" />
+        <entry key="..\:/Users/aanan/AndroidStudioProjects/MyStores/app/src/main/res/layout/fragment_maps_stores.xml" value="0.1796875" />
         <entry key="..\:/Users/aanan/AndroidStudioProjects/MyStores/app/src/main/res/layout/fragment_offers.xml" value="0.1796875" />
         <entry key="..\:/Users/aanan/AndroidStudioProjects/MyStores/app/src/main/res/layout/fragment_stores.xml" value="0.1796875" />
         <entry key="..\:/Users/aanan/AndroidStudioProjects/MyStores/app/src/main/res/layout/layout_header.xml" value="0.1796875" />
