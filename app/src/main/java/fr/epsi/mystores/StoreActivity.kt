@@ -13,24 +13,30 @@ class StoreActivity : BaseActivity() {
         intent.getStringExtra("storeName")?.let { setHeaderTitle(it) }
         showBack()
 
+        val storePictureAndDescription =
+            intent.getStringExtra("storePictureAndDescription")?.split("///")
+
         val imgView = findViewById<ImageView>(R.id.imgViewStoreDetails)
-        val urlImage = intent.getStringExtra("storePicture")
+        val urlImage = storePictureAndDescription?.get(0)
         Picasso.get().load(urlImage).error(R.drawable.no_image).into(imgView)
 
+        val fullAddress = intent.getStringExtra("storeAddress")?.split(',')
+        val address = fullAddress?.get(0)
+        val zipcodeAndCity = fullAddress?.get(1)?.split(' ')
+        val zipcode = zipcodeAndCity?.get(1)
+        val city = zipcodeAndCity?.get(2)
+
         val txtViewAddress = findViewById<TextView>(R.id.txtViewStoreAddress)
-        val address = intent.getStringExtra("storeAddress")
         txtViewAddress.text = address
 
         val txtViewZipcode = findViewById<TextView>(R.id.txtViewStoreZipcode)
-        val zipcode = intent.getStringExtra("storeZipcode")
         txtViewZipcode.text = "$zipcode - "
 
         val txtViewCity = findViewById<TextView>(R.id.txtViewStoreCity)
-        val city = intent.getStringExtra("storeCity")
         txtViewCity.text = city
 
         val txtViewDescription = findViewById<TextView>(R.id.txtViewStoreDescription)
-        val description = intent.getStringExtra("storeDescription")
+        val description = storePictureAndDescription?.get(1)
         txtViewDescription.text = "Description : $description"
     }
 }

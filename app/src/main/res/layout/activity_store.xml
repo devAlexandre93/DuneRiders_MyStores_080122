@@ -23,7 +23,8 @@
 
             <ImageView
                 style="@style/StoreDetailsImageView"
-                android:id="@+id/imgViewStoreDetails" />
+                android:id="@+id/imgViewStoreDetails"
+                android:background="@drawable/black_background" />
 
             <TextView
                 style="@style/StoreAddressTextView"
@@ -32,14 +33,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal">
+
                 <TextView
-                    style="@style/StoreZipcodeTextView"
-                    android:id="@+id/txtViewStoreZipcode"/>
+                    android:id="@+id/txtViewStoreZipcode"
+                    style="@style/StoreZipcodeTextView" />
+
                 <TextView
-                    style="@style/StoreCityTextView"
-                    android:id="@+id/txtViewStoreCity"/>
+                    android:id="@+id/txtViewStoreCity"
+                    style="@style/StoreCityTextView" />
             </LinearLayout>
 
             <TextView

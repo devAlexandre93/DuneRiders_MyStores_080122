@@ -23,10 +23,14 @@ import com.google.android.gms.maps.model.MarkerOptions
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
+import com.google.android.gms.maps.model.Marker
+
+import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener
+
 
 class MapsStoresFragment : Fragment() {
 
-    lateinit var googleMap :GoogleMap
+    lateinit var googleMap: GoogleMap
 
     @SuppressLint("MissingPermission")
     @RequiresApi(Build.VERSION_CODES.N)
@@ -36,29 +40,30 @@ class MapsStoresFragment : Fragment() {
         when {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
                 // Precise location access granted.
-                googleMap.isMyLocationEnabled=true
+                googleMap.isMyLocationEnabled = true
             }
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 // Only approximate location access granted.
-                googleMap.isMyLocationEnabled=true
-            } else -> {
-            // No location access granted.
-        }
+                googleMap.isMyLocationEnabled = true
+            }
+            else -> {
+                // No location access granted.
+            }
         }
     }
 
     private val callback = OnMapReadyCallback { googleMap ->
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(48.854885,2.338646),5f))
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(48.854885, 2.338646), 5f))
 
         fetchStores(googleMap)
 
-        //val newIntent = Intent((activity as BaseActivity), StoreActivity::class.java)
-        //googleMap.setOnInfoWindowClickListener {
-        //    startActivity(newIntent)
-        //}
-
-        this.googleMap=googleMap
-        locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
+        this.googleMap = googleMap
+        locationPermissionRequest.launch(
+            arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            )
+        )
     }
 
     override fun onCreateView(
@@ -86,10 +91,10 @@ class MapsStoresFragment : Fragment() {
         okHttpClient.newCall(request).enqueue(object : Callback {
             override fun onResponse(call: Call, response: Response) {
                 val data = response.body?.string()
-                val jsonStores= JSONObject(data)
+                val jsonStores = JSONObject(data)
                 val stores = jsonStores.getJSONArray("stores")
                 activity?.runOnUiThread(Runnable {
-                    for(i in 0 until stores.length()){
+                    for (i in 0 until stores.length()) {
                         val jsonStore = stores.getJSONObject(i)
                         val store = MarkerOptions()
                         val storeName = jsonStore.optString("name")
@@ -98,23 +103,22 @@ class MapsStoresFragment : Fragment() {
                         val storeCity = jsonStore.optString("city")
                         val storePicture = jsonStore.optString("pictureStore")
                         val storeDescription = jsonStore.optString("description")
-                        store.title(storeName)
+                        store.title("$storeName")
                         store.snippet("$storeAddress, $storeZipcode $storeCity")
                         val storeLatLng = LatLng(
                             jsonStore.optDouble("latitude", 0.0),
-                            jsonStore.optDouble("longitude",0.0)
+                            jsonStore.optDouble("longitude", 0.0)
                         )
                         store.position(storeLatLng)
                         store.icon(defaultMarker(HUE_AZURE))
-                        googleMap.addMarker(store)
-                        val newIntent = Intent((activity as BaseActivity), StoreActivity::class.java)
-                        newIntent.putExtra("storeName", storeName)
-                        newIntent.putExtra("storeAddress", storeAddress)
-                        newIntent.putExtra("storeZipcode", storeZipcode)
-                        newIntent.putExtra("storeCity", storeCity)
-                        newIntent.putExtra("storePicture", storePicture)
-                        newIntent.putExtra("storeDescription", storeDescription)
+                        googleMap.addMarker(store)?.tag = "$storePicture///$storeDescription"
+
                         googleMap.setOnInfoWindowClickListener {
+                            val storePictureAndDescription = it.tag as? String
+                            val newIntent = Intent(activity as BaseActivity, StoreActivity::class.java)
+                            newIntent.putExtra("storeName", it.title)
+                            newIntent.putExtra("storeAddress", it.snippet)
+                            newIntent.putExtra("storePictureAndDescription", storePictureAndDescription)
                             startActivity(newIntent)
                         }
                     }
