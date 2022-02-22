@@ -239,17 +239,44 @@
     <style name="StoreDetailsImageView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">300dp</item>
-        <item name="android:layout_marginTop">5dp</item>
-        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
     </style>
 
-    <style name="StoreDetailsTextView" parent="Widget.AppCompat.TextView">
+    <style name="StoreAddressTextView" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/textColor</item>
-        <item name="android:layout_marginRight">6dp</item>
-        <item name="android:layout_marginLeft">6dp</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+    <style name="StoreZipcodeTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="StoreCityTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="StoreDescriptionTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
 </resources>

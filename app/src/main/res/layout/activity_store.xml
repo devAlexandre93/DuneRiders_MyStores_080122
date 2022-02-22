@@ -26,8 +26,25 @@
                 android:id="@+id/imgViewStoreDetails" />
 
             <TextView
-                style="@style/StoreDetailsTextView"
-                android:id="@+id/txtViewStoreDetails" />
+                style="@style/StoreAddressTextView"
+                android:id="@+id/txtViewStoreAddress" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+                <TextView
+                    style="@style/StoreZipcodeTextView"
+                    android:id="@+id/txtViewStoreZipcode"/>
+                <TextView
+                    style="@style/StoreCityTextView"
+                    android:id="@+id/txtViewStoreCity"/>
+            </LinearLayout>
+
+            <TextView
+                style="@style/StoreDescriptionTextView"
+                android:id="@+id/txtViewStoreDescription" />
 
         </LinearLayout>
 

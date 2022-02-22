@@ -52,10 +52,10 @@ class MapsStoresFragment : Fragment() {
 
         fetchStores(googleMap)
 
-        val newIntent = Intent((activity as BaseActivity), StoreActivity::class.java)
-        googleMap.setOnInfoWindowClickListener {
-            startActivity(newIntent)
-        }
+        //val newIntent = Intent((activity as BaseActivity), StoreActivity::class.java)
+        //googleMap.setOnInfoWindowClickListener {
+        //    startActivity(newIntent)
+        //}
 
         this.googleMap=googleMap
         locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -107,16 +107,16 @@ class MapsStoresFragment : Fragment() {
                         store.position(storeLatLng)
                         store.icon(defaultMarker(HUE_AZURE))
                         googleMap.addMarker(store)
-                        //val newIntent = Intent((activity as BaseActivity), StoreActivity::class.java)
-                        //newIntent.putExtra("storeName", storeName)
-                        //newIntent.putExtra("storeAddress", storeAddress)
-                        //newIntent.putExtra("storeZipcode", storeZipcode)
-                        //newIntent.putExtra("storeCity", storeCity)
-                        //newIntent.putExtra("storePicture", storePicture)
-                        //newIntent.putExtra("storeDescription", storeDescription)
-                        //googleMap.setOnInfoWindowClickListener {
-                        //    startActivity(newIntent)
-                        //}
+                        val newIntent = Intent((activity as BaseActivity), StoreActivity::class.java)
+                        newIntent.putExtra("storeName", storeName)
+                        newIntent.putExtra("storeAddress", storeAddress)
+                        newIntent.putExtra("storeZipcode", storeZipcode)
+                        newIntent.putExtra("storeCity", storeCity)
+                        newIntent.putExtra("storePicture", storePicture)
+                        newIntent.putExtra("storeDescription", storeDescription)
+                        googleMap.setOnInfoWindowClickListener {
+                            startActivity(newIntent)
+                        }
                     }
                 })
             }
