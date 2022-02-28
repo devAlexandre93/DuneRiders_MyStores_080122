@@ -6,7 +6,7 @@ plugins {
 android {
     signingConfigs {
         config {
-            storeFile file('C:\\Users\\aanan\\AndroidStudioProjects\\MyStores\\keystore.jks')
+            storeFile file('..\\keystore.jks')
             storePassword 'keystore'
             keyAlias 'keystore'
             keyPassword 'keystore'
